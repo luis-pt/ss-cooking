@@ -1,0 +1,35 @@
+//
+// IMPORT TAILWIND
+//
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//
+// IMPORT FONTS
+//
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+//
+// INCLUDE COMPONENTS
+//
+@import 'header';
+@import 'hero';
+
+
+//
+// RANDOM
+//
+body {
+  @apply bg-white;
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+h1 {
+    display: inline-block;
+    will-change: transform;
+}

@@ -1,0 +1,1 @@
+console.log("content component loaded");
