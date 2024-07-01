@@ -10,13 +10,18 @@
 //
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 
+//
+// IMPORT BASE
+//
+@import 'variables';
+@import 'mixins';
 
 //
 // INCLUDE COMPONENTS
 //
 @import 'header';
 @import 'hero';
-
+@import 'content';
 
 //
 // RANDOM
@@ -25,8 +30,9 @@ body {
   @apply bg-white;
   font-family: "Jost", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 900;
+  font-weight: 500;
   font-style: normal;
+  min-height: 100.2vh;
 }
 
 h1 {

@@ -6,8 +6,9 @@ import { Flip } from 'gsap/Flip';
 gsap.registerPlugin(ScrollTrigger, Flip);
 
 document.addEventListener('DOMContentLoaded', () => {
-    gsap.from('h1', { y: -30, opacity: 0, duration: 1, ease: "expo.inOut" });
-    gsap.from('p', { y: -10, opacity: 0, duration: 1, delay: .2, ease: "expo.inOut" });
+    // gsap.from('h1', { y: -30, opacity: 0, duration: 1, ease: "expo.inOut" });
+    // gsap.from('p', { y: -10, opacity: 0, duration: 1, delay: .2, ease: "expo.inOut" });
+    console.log('DOM loaded');
 });
 
 //
@@ -30,3 +31,5 @@ document.getElementById('content').innerHTML = contentHTML;
 import './header.js';
 import './hero.js';
 import './content.js';
+
+

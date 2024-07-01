@@ -1,0 +1,74 @@
+.hide-on-load {
+    opacity: 0;
+}
+#content {
+    margin-top: 80px;
+    margin-bottom: 25vh;
+    &.wrapper {
+        width: $wrapper-width;
+        margin: $wrapper-margin;
+    }
+    .container {
+        background-color: $light-gray;
+        padding: 20px;
+        border-radius: $button-border-radius
+    }
+    button {
+        @include button;
+    }
+
+
+    .container {
+        display: flex;
+    }
+    
+    .left-menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .left-menu li {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #f0f0f0;
+        margin-bottom: 5px;
+    }
+    
+    .left-menu li:hover {
+        background-color: #ccc;
+    }
+    
+    .middle-menu, .right-content {
+        margin-left: 20px;
+    }
+    
+    .middle-menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .middle-menu li {
+        padding: 5px 0;
+    }
+    
+    .right-content img {
+        width: 200px;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    #middle-title, #middle-list, #content-title, #content-image, #content-description {
+        transition: opacity 0.2s ease-in-out;
+        opacity: 1;
+    }
+
+
+    .content-panel {
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+    }
+    .content-panel.show {
+        opacity: 1;
+    }
+
+}

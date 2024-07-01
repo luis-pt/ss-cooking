@@ -1,14 +1,47 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: auto;
+    z-index: 10;
     nav {
+        
         background-color: #0000FF;
         padding: 20px;
-        ul {
-            li {
-                display: inline;
-                margin-right: 10px;
-                a {
-                    color: #39f;
-                    text-decoration: none;
+        .container {
+            max-width: $wrapper-width;
+            margin: $wrapper-margin;
+        }
+        a {
+            color: $white;
+        }
+        .sub-menu {
+            margin-top: -44px;
+            a {
+                
+                padding-top: 20px;
+                font-weight: 400;
+                margin: 0 20px;
+
+                &.entrar-btn {
+                    padding: 20px 20px 8px 20px;
+                    border-bottom-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                    transition: transform 0.3s ease-out;
+                    // border-top: 20px solid white;
+                    &:hover {
+                        transform: translateY(3px);
+                    }
+                }
+                .lupa {
+                    margin-left: 30px;
+                    display: block;
+                    transition: transform 0.3s ease-out;
+                    &:hover {
+                        transform: scale(1.2);
+
+                    }
                 }
             }
         }
