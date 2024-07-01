@@ -3,14 +3,49 @@
 <nav class="bg-[#0000ff] p-8">
     <div class="container mx-auto flex justify-between items-center">
       <div class="flex space-x-4 lg-main-menu">
-        <a href="#">Lorem Ipsum</a>
-        <a href="#">Lorem Ipsum</a>
-        <a href="#">Lorem Ipsum</a>
-        <a href="#">Lorem Ipsum</a>
+        <ul>
+          <li><a href="#">Lorem 1</a></li>
+          <li class="has-submenu">
+            <a href="#">Lorem ipsum 2</a>
+            <ul>
+              <li><a href="#">Lorem ipsum 2.1</a></li>
+              <li><a href="#">Lorem ipsum 2.2</a></li>
+              <li><a href="#">Lorem ipsum 2.3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Lorem 1</a></li>
+        </ul>
+
+<!-- 
+
+        <a href="#">Lorem Ipsum 1</a>
+        <a href="#" class="has-submenu">
+          Lorem Ipsum 2
+            <span class="is-submenu">
+              <a href="#">Lorem Ipsum 2.1</a><br>
+              <a href="#">Lorem Ipsum 2.2</a><br>
+              <a href="#">Lorem Ipsum 2.3</a><br>
+            </span>
+        </a>
+        <a href="#">Lorem Ipsum 3</a>
+        <a href="#">Lorem Ipsum 4</a> 
+        -->
       </div>
-      <div class="flex space-x-4 align-self-start sub-menu">
+      <div class="flex space-x-4 align-self-start user-menu">
         <a href="#">Contacte-nos</a>
-        <a href="#" class="bg-white text-[#0000ff] entrar-btn">Entrar</a>
+        <a href="#" class="bg-white text-[#0000ff] text-center entrar-btn">
+          <span>
+            <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="7.3479" width="11.2" height="8.919" stroke="#020005" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.59998 7.7357C2.59998 6.96014 2.59998 6.57236 2.59998 4.63344C2.59998 2.69453 3.79997 0.755615 6.59996 0.755615" stroke="#020005" stroke-width="1.5"/>
+              <path d="M10.6 7.7357C10.6 6.96014 10.6 6.57236 10.6 4.63344C10.6 2.69453 9.39998 0.755615 6.59999 0.755615" stroke="#020005" stroke-width="1.5"/>
+              <path d="M6.59998 11.6135V13.9402" stroke="#020005" stroke-width="1.5"/>
+              <ellipse cx="6.59999" cy="11.2257" rx="1.59999" ry="1.55113" fill="#020005"/>
+              </svg>
+              
+          </span> 
+          Entrar
+        </a>
         <a href="#" >
             <svg class="lupa" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16.05 16.05L21 21M18.1579 10.5789C18.1579 14.7647 14.7647 18.1579 10.5789 18.1579C6.39321 18.1579 3 14.7647 3 10.5789C3 6.39321 6.39321 3 10.5789 3C14.7647 3 18.1579 6.39321 18.1579 10.5789Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -32,7 +67,19 @@
         <a href="#">Lorem Ipsum</a>
         <a href="#">Lorem Ipsum</a>
         <a href="#">Contacte-nos</a>
-        <a href="#">Entrar</a>
+        <a href="#">
+          <span>
+            <svg width="13" height="18" viewBox="0 0 13 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="1" y="7.3479" width="11.2" height="8.919" stroke="#020005" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.59998 7.7357C2.59998 6.96014 2.59998 6.57236 2.59998 4.63344C2.59998 2.69453 3.79997 0.755615 6.59996 0.755615" stroke="#020005" stroke-width="1.5"/>
+              <path d="M10.6 7.7357C10.6 6.96014 10.6 6.57236 10.6 4.63344C10.6 2.69453 9.39998 0.755615 6.59999 0.755615" stroke="#020005" stroke-width="1.5"/>
+              <path d="M6.59998 11.6135V13.9402" stroke="#020005" stroke-width="1.5"/>
+              <ellipse cx="6.59999" cy="11.2257" rx="1.59999" ry="1.55113" fill="#020005"/>
+              </svg>
+              
+          </span> 
+          Entrar
+        </a>
       </div>
     </div>
   </nav>

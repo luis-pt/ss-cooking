@@ -5,7 +5,6 @@ import { Flip } from 'gsap/Flip';
 
 gsap.registerPlugin(ScrollTrigger, Flip);
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const square = document.querySelector(".square");
     const content = document.querySelector(".content");
@@ -31,14 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
             scrub: 1,
             markers: false, 
             start: "top top",
-            // end: `+=${innerHeight * .1}`,
             end: `+=${innerHeight * .2}`,
             onEnter: flip,
             onLeaveBack: flip,
         }
     })
-    // setTimeout(() => {
-    //         window.scrollTo(500,500);
-    // }, 400);
     
 });

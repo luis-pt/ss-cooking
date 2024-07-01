@@ -6,17 +6,99 @@ header {
     height: auto;
     z-index: 10;
     nav {
-        
         background-color: #0000FF;
         padding: 20px;
         .container {
             max-width: $wrapper-width;
             margin: $wrapper-margin;
         }
+        ul {
+            li {
+                display: inline-block;
+                margin: 0 30px 0 0;
+                > a {
+                    padding-bottom: 30px;
+                    font-weight: 400;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+                &.has-submenu {
+                    ul {
+                        transition: opacity 0.3s ease;
+                        z-index: 2;
+                        visibility: hidden;
+                        overflow: hidden;
+                        width: 260px;
+                        opacity: .5;
+                        position: absolute;
+                        background-color: $primary;
+                        margin-top: 32px;
+                        margin-left: -20px;
+                        border-bottom-left-radius: 30px;
+                        border-bottom-right-radius: 30px;
+                        box-shadow: inset 0px -1px 0px 1px $white;
+                        li {
+                            display: block;
+                            width: calc(100% - 2px);
+                            margin-left: 1px;
+                            height: 48px;
+                            border-bottom: 1px solid $white;
+                            padding: 12px 0px 20px 20px;
+                            
+                            &:hover {
+                                background-color: $white;
+                                a {
+                                    color: $primary;
+                                }
+                            }
+                            a {
+                                border: none;
+                            }
+                            &:last-of-type {
+
+                                height: 62px;
+                            }
+                        }
+                    }
+                    &:hover {
+                        ul {
+                            visibility: visible;
+                        
+                            opacity: 1;
+                        }
+                    }
+                }
+                
+            }
+        }
         a {
             color: $white;
+            &.has-submenu {
+                border: 1px solid red;
+                position: relative;
+                
+                .is-submenu {
+                    border: 2px solid orange;
+                    position: absolute;
+                    display: inline-block;
+                    top: 20px;
+                    left: 20px;
+                    opacity: .5;
+                    width: 300px;
+                    height: 400px;
+                    a {
+                        display: block;
+                    }
+                }
+                &:hover {
+                    .is-submenu {
+                        opacity: 1;
+                    }
+                }
+            }
         }
-        .sub-menu {
+        .user-menu {
             margin-top: -44px;
             a {
                 
@@ -30,8 +112,31 @@ header {
                     border-bottom-right-radius: 20px;
                     transition: transform 0.3s ease-out;
                     // border-top: 20px solid white;
+
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 9px;
+                    line-height: 11px;
+                    /* identical to box height */
+                    text-align: center;
+
+                    /* Black */
+                    color: $black;
+
+
                     &:hover {
                         transform: translateY(3px);
+                    }
+                    
+                    span {
+                        display: block;
+                        margin-bottom: 3px;
+                        svg {
+                            margin: auto;
+                            width: 20px;
+                            height: 20px;
+                        }
+                        
                     }
                 }
                 .lupa {
