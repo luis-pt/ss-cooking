@@ -1,7 +1,10 @@
 
-# Exercício Share Solutions - Plot
+Deixo abaixo a descrição de instalação com o boilerplate webpack que criei para projetos sem recurso a framework (vue ou outro):
 
-Deixo a descrição de instalação abaixo com o meu boilerplate para aplicações simples:
+&nbsp; 
+
+
+# Exercício Share Solutions - Plot
 
 This is a boilerplate project using Webpack, TailwindCSS, SCSS, GSAP, and live reload.
 
@@ -22,8 +25,8 @@ Ensure you have Node.js and npm installed on your machine.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/luis-pt/webpack-boilerplate.git
-cd webpack-boilerplate
+git clone https://github.com/luis-pt/ss-cooking.git
+cd ss-cooking
 ```
 
 &nbsp; 
