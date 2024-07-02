@@ -18,21 +18,14 @@
     cursor: pointer;
     transition: $button-transition;
     user-select: none;
-
-    /* WEB/Body 2.strong - 14px Bold */
     font-family: 'Jost';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    /* identical to box height, or 129% */
     display: flex;
     align-items: center;
     font-feature-settings: 'pnum' on, 'lnum' on, 'ss01' on;
-
-    /* Black */
-    color: #020005;
-
-
+    color: $black;
   }
   
