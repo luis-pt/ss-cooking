@@ -1,109 +1,174 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const menuItems = document.querySelectorAll('.left-menu li');
-    const middlePanel = document.getElementById('middle-panel');
-    const rightPanel = document.getElementById('right-panel');
-    const subMenuItems = middlePanel.querySelectorAll('li');
-
-    const contentData = {
+        
+    const leftMenuItems = document.querySelectorAll('#left-menu button');
+    const middleMenuItemsContainer = document.getElementById('middle-menu-items');
+    const rightPanelImage1 = document.getElementById('slide-img-1');
+    const rightPanelTitle1 = document.getElementById('slide-title-1');
+    const rightPanelDescription1 = document.getElementById('slide-description-1');
+    const rightPanelImage2 = document.getElementById('slide-img-2');
+    const rightPanelTitle2 = document.getElementById('slide-title-2');
+    const rightPanelDescription2 = document.getElementById('slide-description-2');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    
+    // 
+    // INJECT FAKE DATA
+    // 
+    const data = {
         assar: {
-            title: 'Assar',
-            items: ['Cachaço', 'Acém Redondo', 'Vazia e Lombo', 'Picanha', 'Aba'],
-            content: {
-                title: 'Assar Content',
-                img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
-                description: 'Description for Assar...'
-            },
-            dynamicItems: {
-
-            }
+            'Cachaço': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Cachaço', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi! ' },
+                { src: `${require("../images/acem.jpg")}`, title: 'Cachaço', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis.  dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Cachaço', description: 'Lorem sit, amet  elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Cachaço', description: 'Ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/acem.jpg")}`, title: 'Cachaço', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!3' }
+            ],
+            'Acém-Redondo': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Acém Redondo', description: 'Lorem elit.  reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/acem.jpg")}`, title: 'Acém Redondo', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!2' }
+            ],
+            'Vazia-e-Lombo': [
+                { src: `${require("../images/acem.jpg")}`, title: 'Vazia e Lombo', description: 'Lorem ipsum dolor sit, amet  tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Vazia e Lombo', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!2' }
+            ],
+            'Picanha': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Picanha 1', description: 'Lorem ipsum dolor tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/acem.jpg")}`, title: 'Picanha 2', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!2' }
+            ],
+            'Aba': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Aba 1', description: 'Lorem ipsum inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!' },
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Aba 2', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!2' }
+            ]
         },
         cozer: {
-            title: 'Cozer',
-            items: ['Cachaço', 'Vazia e Lombo', 'Picanha', 'Aba'],
-            content: {
-                title: 'Cozer Content',
-                img: `<img src="${require('../images/cachaco.jpg')}" alt="Assar">`,
-                description: 'Description for Cozer...'
-            }
+            'Acém-Comprido': [
+                { src: `${require("../images/acem.jpg")}`, title: 'Acém Comprido', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!o' }
+            ]
         },
         fritar: {
-            title: 'Fritar',
-            items: ['Vazia e Lombo', 'Picanha', 'Aba'],
-            content: {
-                title: 'Fritar Content',
-                img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
-                description: 'Description for Fritar...'
-            }
+            'Acém-Comprido': [
+                { src: `${require("../images/acem.jpg")}`, title: 'Acém Comprido', description: 'Description for Acém Comprido' }
+            ],
+            'Pá': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Pá', description: 'Description for Pá' }
+            ]
         },
         guisar: {
-            title: 'Guisar',
-            items: ['Acém Redondo', 'Vazia e Lombo', 'Aba'],
-            content: {
-                title: 'Guisar Content',
-                img: `<img src="${require('../images/cachaco.jpg')}" alt="Assar">`,
-                description: 'Description for Guisar...'
-            }
+            'Pá': [
+                { src: `${require("../images/cachaco.jpg")}`, title: 'Pá', description: 'Description for Pá' }
+            ],
+            'Acém-Comprido': [
+                { src: `${require("../images/acem.jpg")}`, title: 'Acém Comprido', description: 'Description for Acém Comprido' }
+            ]
         },
         grelhar: {
-            title: 'Grelhar',
-            items: ['Aba', 'Acém Redondo', 'Vazia e Lombo', 'Picanha', 'Cachaço'],
-            content: {
-                title: 'Grelhar Content',
-                img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
-                description: 'Description for Grelhar...'
-            }
+            'Acém-Comprido': [
+                { src: `${require("../images/acem.jpg")}`, title: 'Acém Comprido', description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam expedita tempora inventore reiciendis perferendis? Explicabo, perferendis. Numquam quo deleniti, quas esse a, pariatur, officiis dolorum corporis obcaecati hic saepe excepturi!o' }
+            ]
         }
     };
 
-    menuItems.forEach(item => {
-        item.addEventListener('click', function() {
-            menuItems.forEach(menuItem => menuItem.classList.remove('active'));
-            this.classList.add('active');
+    // 
+    // LOGIC PART HERE
+    // 
+    let currentCategory = 'assar';
+    let currentSubCategoryIndex = 0;
+    let currentItems = Object.keys(data[currentCategory]);
 
-            const contentKey = this.getAttribute('data-content');
-            const data = contentData[contentKey];
-            if (data) {
-                fadeOut(middlePanel, function() {
-                    // <h2 class="middle-title">${data.title}</h2>
-                    middlePanel.innerHTML = ` 
-                        <ul>${data.items.map(item => `<li data-subitem="${item}">${item}</li>`).join('')}</ul>
-                    `;
-                    fadeIn(middlePanel);
-                });
-                fadeOut(rightPanel, function() {
-                    rightPanel.innerHTML = `
-                        <h2>${data.content.title}</h2>
-                        ${data.content.img}
-                        <p>${data.content.description}</p>
-                    `;
-                    fadeIn(rightPanel);
-                });
-            }
+    leftMenuItems.forEach(item => {
+        item.addEventListener('click', event => {
+            const category = event.target.getAttribute('data-category');
+            loadMiddleMenu(category);
         });
     });
-    subMenuItems.forEach(subItem => {
-        
-        subItem.addEventListener('click', function() {
-            const contentKey = this.getAttribute('data-subitem');
-            const data = contentData[contentKey];
-            if (data) {
-                alert(data);
+
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+
+    function loadMiddleMenu(category) {
+        currentCategory = category;
+        currentSubCategoryIndex = 0;
+        currentItems = Object.keys(data[category]);
+        highlightActiveMenuItem(leftMenuItems, category);
+        middleMenuItemsContainer.innerHTML = ''; // limpa o previous
+        currentItems.forEach((item, index) => {
+            const listItem = document.createElement('li');
+            const button = document.createElement('button');
+            button.classList.add('text-gray-500');
+            button.textContent = item.replace(/-/g, ' ');
+            button.setAttribute('data-subcategory', item);
+            button.addEventListener('click', () => loadRightPanel(index));
+            listItem.appendChild(button);
+            middleMenuItemsContainer.appendChild(listItem);
+        });
+
+        // carrega o primeiro item no middle panel por defeito
+        if (currentItems.length > 0) {
+            loadRightPanel(0);
+        }
+    }
+
+    function loadRightPanel(index) {
+        currentSubCategoryIndex = index;
+        highlightActiveMenuItem(document.querySelectorAll('#middle-menu-items button'), currentItems[index]);
+        updateSlide();
+    }
+
+    function updateSlide() {
+        if (currentItems.length === 0) return;
+        const currentItem = currentItems[currentSubCategoryIndex];
+        const { src, title, description } = data[currentCategory][currentItem][0];
+        rightPanelImage1.src = src;
+        rightPanelTitle1.textContent = title;
+        rightPanelDescription1.textContent = description;
+
+        if (currentItems.length > 1) {
+            const nextItemIndex = (currentSubCategoryIndex + 1) % currentItems.length;
+            const nextItem = currentItems[nextItemIndex];
+            const { src: src2, title: title2, description: description2 } = data[currentCategory][nextItem][0];
+            rightPanelImage2.src = src2;
+            rightPanelTitle2.textContent = title2;
+            rightPanelDescription2.textContent = description2;
+            rightPanelImage2.style.visibility = 'visible';
+            rightPanelTitle2.style.visibility = 'visible';
+            rightPanelDescription2.style.visibility = 'visible';
+            prevButton.disabled = false;
+            nextButton.disabled = false;
+        } else {
+            rightPanelImage2.src = '';
+            rightPanelTitle2.textContent = '';
+            rightPanelDescription2.textContent = '';
+            rightPanelImage2.style.visibility = 'hidden';
+            rightPanelTitle2.style.visibility = 'hidden';
+            rightPanelDescription2.style.visibility = 'hidden';
+            prevButton.disabled = true;
+            nextButton.disabled = true;
+        }
+    }
+
+    function prevSlide() {
+        if (currentItems.length === 0) return;
+        currentSubCategoryIndex = (currentSubCategoryIndex > 0) ? currentSubCategoryIndex - 1 : currentItems.length - 1;
+        loadRightPanel(currentSubCategoryIndex);
+    }
+
+    function nextSlide() {
+        if (currentItems.length === 0) return;
+        currentSubCategoryIndex = (currentSubCategoryIndex < currentItems.length - 1) ? currentSubCategoryIndex + 1 : 0;
+        loadRightPanel(currentSubCategoryIndex);
+    }
+
+    function highlightActiveMenuItem(menuItems, activeItem) {
+        menuItems.forEach(item => {
+            if (item.getAttribute('data-category') === activeItem || item.getAttribute('data-subcategory') === activeItem) {
+                item.classList.add('active');
             } else {
-                alert(" no data");
+                item.classList.remove('active');
             }
         });
-    });
-
-    function fadeOut(element, callback) {
-        element.classList.remove('show');
-        setTimeout(function() {
-            callback();
-        }, 200); // confirmar que o timing é o mesmo da transition no css 
     }
 
-    function fadeIn(element) {
-        setTimeout(function() {
-            element.classList.add('show');
-        }, 10);
-    }
+    // carrega o middle menu com a categoria inicial
+    loadMiddleMenu('assar');
+
 });

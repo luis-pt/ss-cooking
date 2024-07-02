@@ -22,8 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         Flip.from(state);
     }
-
-
     var animationStart = gsap.timeline({
         scrollTrigger: {
             trigger: square,

@@ -1,49 +1,62 @@
 <div id="content" class="wrapper hide-on-load">
-    
     <section class="container mx-auto mt-12 mb-20">
-        <div class="w-full p-4 rounded-lg">
-          
-
-
-
-                <div class="grid grid-cols-12 gap-8 pt-4">
-                    <div class="col-span-2">
-                        <h2 class="text-2xl font-bold mb-4"> Cortes </h2>
-                        
-                        <div class="left-menu">
-                            <ul>
-                                <li data-content="assar" class="active">Assar</li>
-                                <li data-content="cozer">Cozer</li>
-                                <li data-content="fritar">Fritar</li>
-                                <li data-content="guisar">Guisar</li>
-                                <li data-content="grelhar">Grelhar</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-span-3">
-                        <div class="middle-panel content-panel" id="middle-panel">
-                            <ul>
-                                <li data-subitem="assar" class="active">Assar</li>
-                                <li data-subitem="cozer">Cozer</li>
-                                <li data-subitem="fritar">Fritar</li>
-                                <li data-subitem="guisar">Guisar</li>
-                                <li data-subitem="grelhar">Grelhar</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-span-6">
-                        <h2 class="text-2xl font-bold mb-4"> Cortes </h2>
-                        <div class="right-panel content-panel" id="right-panel">
-                            <h2 class="middle-title"></h2>
-                            <img src="../images/acem.jpg" alt="">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus eius ipsum, molestias dicta fugit quod! Atque repellendus, distinctio dicta molestias sequi temporibus, recusandae nulla aperiam mollitia nihil expedita iusto officiis.</p>
-                        </div>
-                    </div>
-                    
+        <div class="w-full py-4 pl-4 rounded-lg">
+            <h2 id="main-title" class=" text-xl font-bold mb-4">Cortes e confecção</h2>
+            <div class="flex overflow-hidden items-center">
+                <!-- Left Menu -->
+                <div id="left-menu" class="w-1/4 p-4">
+                    <ul class="space-y-2">
+                        <li><button class="text-black font-semibold" data-category="assar">Assar</button></li>
+                        <li><button class="text-gray-500" data-category="cozer">Cozer</button></li>
+                        <li><button class="text-gray-500" data-category="fritar">Fritar</button></li>
+                        <li><button class="text-gray-500" data-category="guisar">Guisar</button></li>
+                        <li><button class="text-gray-500" data-category="grelhar">Grelhar</button></li>
+                    </ul>
                 </div>
-
-          
+        
+                <!-- Middle Menu -->
+                <div id="middle-menu" class="w-1/4 p-4">
+                    <ul id="middle-menu-items" class="space-y-2">
+                        <!-- ver content.js :) -->
+                    </ul>
+                </div>
+        
+                <!-- Right Panel -->
+                <div id="right-panel" class="w-1/2 p-4">
+                    <div class="tipo pb-12">
+                        <button class="active">Vaca</button>
+                        <button>Porco</button>
+                        <button>Borrego</button>
+                        <button>Frango</button>
+                        <button>Perú</button>
+                    </div>
+                    <div id="slideshow" class="relative flex space-x-8">
+                        <div class="slide w-1/2">
+                            <img id="slide-img-1" class="rounded-2xl" src="../images/acem.jpg" alt="Meat Image">
+                            <h3 id="slide-title-1" class="text-xl font-bold mt-4">Title</h3>
+                            <p id="slide-description-1" class="text-gray-600 mt-2">Description</p>
+                        </div>
+                        <div class="slide w-1/2">
+                            <img id="slide-img-2" class="rounded-2xl" src="../images/acem.jpg" alt="Meat Image">
+                            <h3 id="slide-title-2" class="text-xl font-bold mt-4">Title</h3>
+                            <p id="slide-description-2" class="text-gray-600 mt-2">Description</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-end mb-4 pr-10">
+                        <button id="prev" class="bg-gray-300 p-2 rounded">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.8125 4.5L8.25 12L14.8125 19.5" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button id="next" class="bg-gray-300 p-2 rounded">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.1875 19.5L15.75 12L9.1875 4.5" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                                
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
 </div>
