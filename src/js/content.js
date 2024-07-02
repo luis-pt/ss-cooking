@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
         
-    const leftMenuItems = document.querySelectorAll('#left-menu button');
-    const middleMenuItemsContainer = document.getElementById('middle-menu-items');
-    const rightPanelImage1 = document.getElementById('slide-img-1');
-    const rightPanelTitle1 = document.getElementById('slide-title-1');
-    const rightPanelDescription1 = document.getElementById('slide-description-1');
-    const rightPanelImage2 = document.getElementById('slide-img-2');
-    const rightPanelTitle2 = document.getElementById('slide-title-2');
-    const rightPanelDescription2 = document.getElementById('slide-description-2');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
+    const leftMenuItems = document.querySelectorAll('#left-menu button'),
+    middleMenuItemsContainer = document.getElementById('middle-menu-items'),
+    rightPanelImage1 = document.getElementById('slide-img-1'),
+    rightPanelTitle1 = document.getElementById('slide-title-1'),
+    rightPanelDescription1 = document.getElementById('slide-description-1'),
+    rightPanelImage2 = document.getElementById('slide-img-2'),
+    rightPanelTitle2 = document.getElementById('slide-title-2'),
+    rightPanelDescription2 = document.getElementById('slide-description-2'),
+    prevButton = document.getElementById('prev'),
+    nextButton = document.getElementById('next');
     
     // 
     // INJECT FAKE DATA
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // 
-    // LOGIC PART HERE
+    // LOGIC PART HERE :)
     // 
     let currentCategory = 'assar';
     let currentSubCategoryIndex = 0;
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         currentSubCategoryIndex = 0;
         currentItems = Object.keys(data[category]);
         highlightActiveMenuItem(leftMenuItems, category);
-        middleMenuItemsContainer.innerHTML = ''; // limpa o previous
+        middleMenuItemsContainer.innerHTML = ''; // limpa o previous item
         currentItems.forEach((item, index) => {
             const listItem = document.createElement('li');
             const button = document.createElement('button');

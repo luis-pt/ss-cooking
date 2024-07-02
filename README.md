@@ -1,7 +1,7 @@
 
+# Exercício Share Solutions - Plot
 
-
-# Webpack Boilerplate
+Deixo a descrição de instalação abaixo com o meu boilerplate para aplicações simples:
 
 This is a boilerplate project using Webpack, TailwindCSS, SCSS, GSAP, and live reload.
 
