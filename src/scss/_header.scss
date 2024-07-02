@@ -6,21 +6,36 @@ header {
     height: auto;
     z-index: 10;
     nav {
-        background-color: #0000FF;
+        background-color: $primary;
         padding: 20px;
         .container {
             max-width: $wrapper-width;
             margin: $wrapper-margin;
         }
         ul {
-            li {
+            > li {
                 display: inline-block;
                 margin: 0 30px 0 0;
                 > a {
                     padding-bottom: 30px;
                     font-weight: 400;
-                    &:hover {
-                        text-decoration: underline;
+                    position: relative;
+                    &::after {
+                        content: "";
+                        display: block;
+                        width: 100%;
+                        height: 1px;
+                        background-color: $white;
+                        position: absolute;
+                        bottom: 33px;
+                        left: 0;
+                        transform: scaleX(0);
+                        transition: transform 0.3s cubic-bezier(.46,.08,.43,.99);
+                    }
+                    &:focus {
+                        &::after {
+                            transform: scaleX(1);
+                        }
                     }
                 }
                 &.has-submenu {
@@ -33,11 +48,12 @@ header {
                         opacity: .5;
                         position: absolute;
                         background-color: $primary;
-                        margin-top: 32px;
+                        margin-top: 22px;
                         margin-left: -20px;
                         border-bottom-left-radius: 30px;
                         border-bottom-right-radius: 30px;
                         box-shadow: inset 0px -1px 0px 1px $white;
+                        border-top: 10px solid transparent;
                         li {
                             display: block;
                             width: calc(100% - 2px);
@@ -45,7 +61,6 @@ header {
                             height: 48px;
                             border-bottom: 1px solid $white;
                             padding: 12px 0px 20px 20px;
-                            
                             &:hover {
                                 background-color: $white;
                                 a {
@@ -64,7 +79,6 @@ header {
                     &:hover {
                         ul {
                             visibility: visible;
-                        
                             opacity: 1;
                         }
                     }
@@ -77,7 +91,6 @@ header {
             &.has-submenu {
                 border: 1px solid red;
                 position: relative;
-                
                 .is-submenu {
                     border: 2px solid orange;
                     position: absolute;
@@ -101,33 +114,23 @@ header {
         .user-menu {
             margin-top: -44px;
             a {
-                
                 padding-top: 20px;
                 font-weight: 400;
                 margin: 0 20px;
-
                 &.entrar-btn {
                     padding: 20px 20px 8px 20px;
                     border-bottom-left-radius: 20px;
                     border-bottom-right-radius: 20px;
                     transition: transform 0.3s ease-out;
-                    // border-top: 20px solid white;
-
                     font-style: normal;
                     font-weight: 600;
                     font-size: 9px;
                     line-height: 11px;
-                    /* identical to box height */
                     text-align: center;
-
-                    /* Black */
                     color: $black;
-
-
                     &:hover {
                         transform: translateY(3px);
                     }
-                    
                     span {
                         display: block;
                         margin-bottom: 3px;
@@ -136,7 +139,6 @@ header {
                             width: 20px;
                             height: 20px;
                         }
-                        
                     }
                 }
                 .lupa {

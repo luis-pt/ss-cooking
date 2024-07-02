@@ -8,7 +8,8 @@
         width: $wrapper-width;
         margin: $wrapper-margin;
     }
-    .container {
+    
+        .container {
         background-color: $light-gray;
         padding: 20px;
         border-radius: $button-border-radius
@@ -16,57 +17,44 @@
     button {
         @include button;
     }
-
-
+    /*
     .container {
         display: flex;
     }
-    
     .left-menu ul {
         list-style-type: none;
         padding: 0;
     }
-    
     .left-menu li {
         cursor: pointer;
         padding: 10px;
         background-color: #f0f0f0;
         margin-bottom: 5px;
     }
-    
     .left-menu li:hover {
         background-color: #ccc;
     }
-    
     .middle-menu, .right-content {
         margin-left: 20px;
     }
-    
     .middle-menu ul {
         list-style-type: none;
         padding: 0;
     }
-    
     .middle-menu li {
         padding: 5px 0;
     }
-    
     .right-content img {
         width: 200px;
         height: 150px;
         object-fit: cover;
     }
-    
     #middle-title, #middle-list, #content-title, #content-image, #content-description {
         transition: opacity 0.2s ease-in-out;
         opacity: 1;
     }
-
-
     .content-panel {
-        // opacity: 0;
         border: 1px solid blue;
-        
         transition: opacity 0.2s ease-in;
     }
     .content-panel.show {
@@ -75,5 +63,65 @@
     .aaa {
         outline: 1px solid red;
     }
+*/
 
+
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .left-menu {
+            ul {
+                margin-top: 50px;
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: flex-start;
+                    padding: 6px 0;
+                    gap: 12px;
+                    font-family: 'Jost';
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 20px;
+                    color: #5F5F5F;
+                    &.active {
+                        color: $black;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .middle-panel {
+            align-self: center;
+            height: 20px;
+        }
+        .right-panel img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        #middle-panel {
+            h2 {
+                &.middle-title {
+                    font-size: 20px;
+                    padding: 20px;
+                }
+            }
+        }
+        #middle-title, #middle-list, #content-title, #content-image, #content-description {
+            transition: opacity 0.2s ease-in-out;
+            opacity: 1;
+            border: 1px solid blue;
+        }
+        .content-panel {
+            transition: opacity 0.2s ease-in;
+        }
+        .content-panel.show {
+            opacity: 1;
+        }
+    }
 }

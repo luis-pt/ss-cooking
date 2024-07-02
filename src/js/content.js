@@ -1,111 +1,52 @@
-/* 
-document.addEventListener('DOMContentLoaded', () => {
-
-    console.log("content component loaded");
-
-
-
-        const menuItems = document.querySelectorAll('.left-menu li');
-        const middlePanel = document.getElementById('middle-panel');
-        const rightPanel = document.getElementById('right-panel');
-    
-        const contentData = {
-            
-            assar: {
-                middle: 'Conteúdo do Assar',
-                right: `<img src="${require('../images/acem.jpg')}" alt="Assar">`
-            },
-            cozer: {
-                middle: 'Conteúdo do Cozer',
-                right: `<img src="${require('../images/cachaco.jpg')}" alt="Cozer">`
-            },
-            fritar: {
-                middle: 'Conteúdo do Fritar',
-                right: `<img src="${require('../images/acem.jpg')}" alt="Fritar">`
-            },
-
-    
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const contentKey = this.getAttribute('data-content');
-                const content = contentData[contentKey];
-    
-                if (content) {
-                    fadeOut(middlePanel, function() {
-                        middlePanel.innerHTML = content.middle;
-                        fadeIn(middlePanel);
-                    });
-    
-                    fadeOut(rightPanel, function() {
-                        rightPanel.innerHTML = content.right;
-                        fadeIn(rightPanel);
-                    });
-                }
-            });
-        });
-    
-        function fadeOut(element, callback) {
-            element.classList.remove('show');
-            setTimeout(function() {
-                callback();
-            }, 500); // Match this time with CSS transition duration
-        }
-    
-        function fadeIn(element) {
-            setTimeout(function() {
-                element.classList.add('show');
-            }, 10);
-        }
-    
-
-
-});
-*/
 document.addEventListener('DOMContentLoaded', function() {
     const menuItems = document.querySelectorAll('.left-menu li');
     const middlePanel = document.getElementById('middle-panel');
     const rightPanel = document.getElementById('right-panel');
+    const subMenuItems = middlePanel.querySelectorAll('li');
 
     const contentData = {
-        Assar: {
+        assar: {
             title: 'Assar',
             items: ['Cachaço', 'Acém Redondo', 'Vazia e Lombo', 'Picanha', 'Aba'],
             content: {
                 title: 'Assar Content',
                 img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
                 description: 'Description for Assar...'
+            },
+            dynamicItems: {
+
             }
         },
-        Cozer: {
+        cozer: {
             title: 'Cozer',
-            items: ['Item A', 'Item B', 'Item C', 'Item D'],
+            items: ['Cachaço', 'Vazia e Lombo', 'Picanha', 'Aba'],
             content: {
                 title: 'Cozer Content',
                 img: `<img src="${require('../images/cachaco.jpg')}" alt="Assar">`,
                 description: 'Description for Cozer...'
             }
         },
-        Fritar: {
+        fritar: {
             title: 'Fritar',
-            items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+            items: ['Vazia e Lombo', 'Picanha', 'Aba'],
             content: {
                 title: 'Fritar Content',
                 img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
                 description: 'Description for Fritar...'
             }
         },
-        Guisar: {
+        guisar: {
             title: 'Guisar',
-            items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+            items: ['Acém Redondo', 'Vazia e Lombo', 'Aba'],
             content: {
                 title: 'Guisar Content',
                 img: `<img src="${require('../images/cachaco.jpg')}" alt="Assar">`,
                 description: 'Description for Guisar...'
             }
         },
-        Grelhar: {
+        grelhar: {
             title: 'Grelhar',
-            items: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+            items: ['Aba', 'Acém Redondo', 'Vazia e Lombo', 'Picanha', 'Cachaço'],
             content: {
                 title: 'Grelhar Content',
                 img: `<img src="${require('../images/acem.jpg')}" alt="Assar">`,
@@ -116,19 +57,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
+            menuItems.forEach(menuItem => menuItem.classList.remove('active'));
+            this.classList.add('active');
+
             const contentKey = this.getAttribute('data-content');
             const data = contentData[contentKey];
-
             if (data) {
                 fadeOut(middlePanel, function() {
-                    middlePanel.innerHTML = `<h2>${data.title}</h2>${data.items.map(item => `<p>${item}</p>`).join('')}`;
+                    // <h2 class="middle-title">${data.title}</h2>
+                    middlePanel.innerHTML = ` 
+                        <ul>${data.items.map(item => `<li data-subitem="${item}">${item}</li>`).join('')}</ul>
+                    `;
                     fadeIn(middlePanel);
                 });
-
                 fadeOut(rightPanel, function() {
-                    rightPanel.innerHTML = `<h2>${data.content.title}</h2>${data.content.img}<p>${data.content.description}</p>`;
+                    rightPanel.innerHTML = `
+                        <h2>${data.content.title}</h2>
+                        ${data.content.img}
+                        <p>${data.content.description}</p>
+                    `;
                     fadeIn(rightPanel);
                 });
+            }
+        });
+    });
+    subMenuItems.forEach(subItem => {
+        
+        subItem.addEventListener('click', function() {
+            const contentKey = this.getAttribute('data-subitem');
+            const data = contentData[contentKey];
+            if (data) {
+                alert(data);
+            } else {
+                alert(" no data");
             }
         });
     });
@@ -137,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.classList.remove('show');
         setTimeout(function() {
             callback();
-        }, 200); // same as the time in CSS transition duration
+        }, 200); // confirmar que o timing é o mesmo da transition no css 
     }
 
     function fadeIn(element) {
