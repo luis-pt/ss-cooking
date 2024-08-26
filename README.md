@@ -1,10 +1,7 @@
 
-Deixo abaixo a descrição de instalação com o boilerplate webpack que criei para projetos sem recurso a framework (vue ou outro):
-
-&nbsp; 
 
 
-# Exercício Share Solutions - Plot
+# Share Solutions - Plot
 
 This is a boilerplate project using Webpack, TailwindCSS, SCSS, GSAP, and live reload.
 
